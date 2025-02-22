@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+body {
+  color: var(--foreground);
+  /* background: var(--background); */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom scrollbar cho Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #525251 #201f1f;
+}
+
+.bgmain-color {
+  background-color: #ddd203;
+}
+
+.textmain-color {
+  background-color: #ddd203;
+}
+
+.progress {
+  position: fixed;
+  left: 0;
+  bottom: 20px;
+  height: 5px;
+  background: #ffd700;
+  transform-origin: left;
+}
+
+.textTitle {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  padding-bottom: 8px;
+  /* Khoảng cách giữa chữ và gạch dưới */
+}
+
+.textTitle::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 80px;
+  /* Độ dài của đường gạch */
+  height: 4px;
+  /* Độ dày của đường gạch */
+  background-color: #ddd203;
+  /* Màu của gạch dưới */
+  transform: translateX(-50%);
+  border-radius: 2px;
+  /* Làm tròn mép */
+}
+
+@keyframes shine {
+  0% {
+    left: -120%;
+  }
+
+  100% {
+    left: 120%;
+  }
+}
+
+/* Hiệu ứng đổ bóng cho hình ảnh sản phẩm */
+.animation-hover-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.animation-hover-item::before {
+  position: absolute;
+  top: 0;
+  left: -120%;
+  z-index: 2;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+  -webkit-transform: skewX(-25deg);
+  transform: skewX(-25deg);
+  transition: left 0.3s ease;
+}
+
+.animation-hover-item:hover::before {
+  animation: shine 0.8s forwards;
+}
