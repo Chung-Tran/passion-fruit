@@ -1,6 +1,7 @@
 'use client'
 import { Product } from "@/app/types/product"
 import { Phone } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 
 
@@ -9,10 +10,11 @@ export default function ProductItem({ product }: { product: Product }) {
         <div className="group overflow-hidden rounded-lg border border-gray-200 shadow-sm transition-all duration-300 hover:shadow-lg w-[90%] md:w-full mx-auto">
             <div className="aspect-square overflow-hidden animation-hover-item">
                 <Link href={`/products/${product.slug}`}>
-                    <img
+                    <Image
                         src={product.image[0] || "/placeholder.svg"}
                         alt={product.name}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        fill
                     />
                 </Link>
             </div>

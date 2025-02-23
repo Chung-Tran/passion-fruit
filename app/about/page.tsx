@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, PhoneCall, MapPin } from "lucide-react";
+import {  PhoneCall, MapPin } from "lucide-react";
 import TopSection from "../components/section/topSection";
 
 export default function About() {

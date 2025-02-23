@@ -4,13 +4,14 @@ import { Product } from "@/app/types/product";
 import ProductDetail from "@/app/components/product/productDetail";
 import TopSection from "@/app/components/section/topSection";
 
-interface ProductPageProps {
-    params: { slug: string };
-}
-
-export default function ProductPage({ params }: ProductPageProps) {
+export default async function Page({
+    params,
+}: {
+    params: Promise<{ slug: string }>
+}) {
     // Tìm sản phẩm theo slug
-    const product: Product | undefined = productsData.find((p) => p.slug === params.slug);
+    const { slug } = await params
+    const product: Product | undefined = productsData.find((p) => p.slug === slug);
 
     if (!product) return notFound(); // Nếu không tìm thấy, trả về trang 404
 

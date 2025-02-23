@@ -1,4 +1,4 @@
-import { Mail, Users2 } from "lucide-react";
+import {  Users2 } from "lucide-react";
 import TopSection from "../components/section/topSection";
 
 export default function CareersPage() {

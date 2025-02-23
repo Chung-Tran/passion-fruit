@@ -3,14 +3,7 @@ import Image from "next/image";
 import { CalendarIcon, User } from "lucide-react";
 import { Blog } from "@/app/types/blog";
 
-// Badge component thay thế
-const Badge = ({ children }: { children: React.ReactNode }) => (
-    <span className="inline-flex items-center rounded-md bg-gray-200 px-2 py-1 text-xs font-medium">
-        {children}
-    </span>
-);
-
-export function BlogPostCard({ title, excerpt, category, author, date, image, slug, className }: Blog) {
+export function BlogPostCard({ title, excerpt, author, date, image, slug, className }: Blog) {
     return (
         <article className={`group rounded-lg border border-gray-200 shadow-sm  relative flex flex-col space-y-4 ${className || ""}`}>
             <Link href={`/blogs/${slug}`} className="overflow-hidden rounded-lg block">

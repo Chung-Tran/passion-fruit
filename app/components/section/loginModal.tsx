@@ -4,12 +4,9 @@ import {
     ModalContent,
     ModalHeader,
     ModalBody,
-    ModalFooter,
-    Button,
     Input,
-    useDisclosure,
 } from "@heroui/react";
-import { User, Lock, Mail } from 'lucide-react';
+import { Lock, Mail } from 'lucide-react';
 
 interface LoginModalProps {
     isOpen: boolean;
@@ -17,7 +14,7 @@ interface LoginModalProps {
     onClose: () => void;
 }
 
-const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onOpen, onClose }) => {
+const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
 
     return (
         <>

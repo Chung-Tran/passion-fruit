@@ -1,9 +1,9 @@
 'use client'
 import Image from "next/image";
-import { useState, useEffect, useMemo, ChangeEvent } from "react";
+import { useState, useMemo, ChangeEvent } from "react";
 import { productsData } from "../data/product";
 import ProductItem from "../components/product/productItem";
-import { Search, Filter, Truck, RefreshCw, Shield, Leaf, X } from "lucide-react";
+import { Search, Filter, X } from "lucide-react";
 import TopSection from "../components/section/topSection";
 import PolicyAndCommit from "./policyAndCommit";
 import { useDebounce } from 'use-debounce';

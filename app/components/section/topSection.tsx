@@ -11,8 +11,6 @@ interface TopSectionProps {
 const TopSection: React.FC<TopSectionProps> = ({
     title,
     description,
-    backgroundImage,
-    height = "h-[30vh]",
 }) => {
     return (
         <section className="relative flex items-center justify-center h-[40vh] md:h-[50vh] bg-cover bg-center bg-[url('/images/hero-section.png')]">

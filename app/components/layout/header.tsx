@@ -9,12 +9,6 @@ import logo from '../../../public/images/logo.png';
 import { navItems } from '@/app/common/constant'
 import { usePathname } from 'next/navigation'
 import {
-    Modal,
-    ModalContent,
-    ModalHeader,
-    ModalBody,
-    ModalFooter,
-    Button,
     useDisclosure,
 } from "@heroui/react";
 import LoginModal from '../section/loginModal'

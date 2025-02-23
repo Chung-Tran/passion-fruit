@@ -18,7 +18,7 @@ interface ProductDetailProps {
 const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const [selectedTab, setSelectedTab] = useState<'description' | 'process'>('description');
+    const [selectedTab, setSelectedTab] = useState('');
 
     const scrollTo = useCallback((index: number) => {
         if (emblaApi) emblaApi.scrollTo(index);
@@ -120,7 +120,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                             }].map(tab => (
                                 <button
                                     key={tab.key}
-                                    onClick={() => setSelectedTab(tab.key as any)}
+                                    onClick={() => setSelectedTab(tab.key as string)}
                                     className={`pb-4 relative transition-all ${selectedTab === tab.key
                                         ? 'text-green-600 font-medium'
                                         : 'text-gray-500'}`}

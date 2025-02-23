@@ -1,5 +1,5 @@
 import React from 'react'
-import { Shield, RefreshCw, Truck, UserCheck, Award } from "lucide-react";
+import { Shield, UserCheck, Award } from "lucide-react";
 
 function PolicyAndCommit() {
   const policies = [

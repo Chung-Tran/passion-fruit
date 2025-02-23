@@ -1,5 +1,4 @@
 'use client'
-import Image from "next/image";
 import { HeroSlider } from "./components/home/hero-slider";
 import BusinessFields from "./components/home/businessFields";
 import { productsData } from "./data/product";
@@ -7,9 +6,10 @@ import ProductItem from "./components/product/productItem";
 import { motion } from 'framer-motion';
 import { blogData } from "./data/blog";
 import { BlogPostCard } from "./components/blog/BlogPostCard";
-import { Leaf, RefreshCw, Shield, Truck } from "lucide-react";
 import { Blog } from "./types/blog";
 import WhyNotUs from "./components/section/whyNotUs";
+import Link from "next/link";
+import Image from "next/image";
 export default function Home() {
   return (
     <div className="max-w-[100vw] overflow-hidden">
@@ -30,7 +30,7 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-3 flex justify-end">
-          <a
+          <Link
             href="/products"
             className="group inline-flex items-center text-green-700 font-semibold hover:text-green-900 transition-colors duration-300 mr-2"
           >
@@ -38,7 +38,7 @@ export default function Home() {
             <span className="ml-2 transform transition-transform duration-300 group-hover:translate-x-1">
               ➝
             </span>
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -86,10 +86,11 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <img
+            <Image
               src="/images/logo-bgwhite.jpg"
               alt="Về chúng tôi"
               className="rounded-2xl w-full h-auto object-contain max-h-[450px]"
+              fill
             />
           </motion.div>
         </div>

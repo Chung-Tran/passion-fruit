@@ -3,7 +3,7 @@ import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import TopSection from '../../components/section/topSection';
-import { CalendarDays, Clock, User } from 'lucide-react';
+import { CalendarDays, User } from 'lucide-react';
 
 import { Blog } from '@/app/types/blog';
 import { blogData } from '@/app/data/blog';

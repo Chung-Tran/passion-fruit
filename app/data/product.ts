@@ -1,5 +1,4 @@
 import { Product } from "../types/product";
-import { motion } from 'framer-motion';
 export const productsData: Product[] = [
     {
         id: 1,

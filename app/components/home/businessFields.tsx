@@ -1,5 +1,5 @@
 'use client'
-import React, { ReactNode, useState } from 'react';
+import React, {  useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import chanhdaytrai from '../../../public/images/chanh-day-trai.jpg';

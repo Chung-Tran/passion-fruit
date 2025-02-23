@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
-import { Leaf, RefreshCw, Shield, Truck, Award } from "lucide-react";
-import { FaLeaf, FaTruck, FaSyncAlt, FaShieldAlt } from 'react-icons/fa';
+import { Award } from "lucide-react";
+import { FaLeaf, FaSyncAlt, FaShieldAlt } from 'react-icons/fa';
 const WhyNotUs = () => {
     return (
         <section className="container mx-auto px-4 py-16 overflow-hidden">

@@ -1,12 +1,10 @@
 'use client'
 import Image from "next/image";
-import { useState } from "react";
 import TopSection from "../components/section/topSection";
 import { CalendarDays, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { blogData } from "../data/blog";
-import { Blog } from "../types/blog";
 
 export default function Blogs() {
   const router = useRouter();
