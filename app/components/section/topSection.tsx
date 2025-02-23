@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 
 interface TopSectionProps {
@@ -14,10 +15,10 @@ const TopSection: React.FC<TopSectionProps> = ({
     height = "h-[30vh]",
 }) => {
     return (
-        <section className="relative flex items-center justify-center h-[50vh] bg-cover bg-center bg-[url('/product-hero.jpg')]">
-            <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30"></div>
+        <section className="relative flex items-center justify-center h-[40vh] md:h-[50vh] bg-cover bg-center bg-[url('/images/hero-section.png')]">
+            <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-0"></div>
             <div className="relative z-10 text-center max-w-3xl px-4">
-                <h1 className="text-5xl font-bold text-white mb-4">
+                <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
                     {title}
                 </h1>
                 {!!description && (

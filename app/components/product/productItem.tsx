@@ -1,20 +1,26 @@
+'use client'
 import { Product } from "@/app/types/product"
 import { Phone } from "lucide-react"
+import Link from "next/link"
 
 
 export default function ProductItem({ product }: { product: Product }) {
     return (
-        <div className="group overflow-hidden rounded-lg border border-gray-200 shadow-sm transition-all duration-300 hover:shadow-lg">
+        <div className="group overflow-hidden rounded-lg border border-gray-200 shadow-sm transition-all duration-300 hover:shadow-lg w-[90%] md:w-full mx-auto">
             <div className="aspect-square overflow-hidden animation-hover-item">
-                <img
-                    src={product.image[0] || "/placeholder.svg"}
-                    alt={product.name}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
+                <Link href={`/products/${product.slug}`}>
+                    <img
+                        src={product.image[0] || "/placeholder.svg"}
+                        alt={product.name}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                </Link>
             </div>
 
             <div className="p-4">
-                <h3 className="font-semibold text-lg mb-2">{product.name}</h3>
+                <Link href={`/products/${product.slug}`}>
+                    <h3 className="font-semibold text-lg mb-2">{product.name}</h3>
+                </Link>
 
                 <div className="space-y-3">
                     <div className="flex items-center gap-2">
@@ -26,7 +32,9 @@ export default function ProductItem({ product }: { product: Product }) {
                         <span className="text-sm text-gray-500">Đơn vị: {product.unit}</span>
                         <button className="flex items-center gap-1 text-blue-600">
                             <Phone className="w-4 h-4" />
-                            <span className="text-base font-medium">Liên hệ</span>
+                            <a href={`tel:0347238240`} className="text-base font-medium">
+                                Liên hệ
+                            </a>
                         </button>
                     </div>
                 </div>

@@ -23,7 +23,7 @@ export default function ContactPage() {
         alert('Gửi thành công!')
         setFormData({ name: '', email: '', subject: '', message: '' })
     }
-
+    const googlemapURL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d230.9946053244674!2d108.30998521517878!3d12.95240734083003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316e1d4f6b64098f%3A0x983822b5ac83105e!2sHeo%20quay%20Thanh%20Huy%E1%BB%81n!5e1!3m2!1svi!2s!4v1740322896427!5m2!1svi!2s"
     return (
         <div className="">
             <TopSection
@@ -108,23 +108,31 @@ export default function ContactPage() {
                         <div className="space-y-6 text-gray-700">
                             <div className="flex items-center">
                                 <MapPin className="h-6 w-6 text-indigo-500 mr-3" />
-                                <span>123 Đường ABC, Quận X, TP.HCM</span>
+                                <span>143 Trung Hồ, Ea Hồ, Krông Năng, Đắk Lắk</span>
                             </div>
                             <div className="flex items-center">
                                 <Phone className="h-6 w-6 text-indigo-500 mr-3" />
-                                <span>+84 123 456 789</span>
+                                <a href={`tel:0347238240`} >+84 347 238 240</a>
                             </div>
-                            <div className="flex items-center">
+                            {/* <div className="flex items-center">
                                 <Mail className="h-6 w-6 text-indigo-500 mr-3" />
                                 <span>contact@example.com</span>
-                            </div>
+                            </div> */}
                             <div className="flex items-center">
                                 <Clock className="h-6 w-6 text-indigo-500 mr-3" />
-                                <span>Thứ 2 - Thứ 6: 08:00 - 18:00</span>
+                                <span>Thứ 2 - Chủ nhật: 07:00 - 22:00</span>
                             </div>
                         </div>
-                        <div className="mt-6 h-56 bg-gray-200 rounded-lg flex items-center justify-center">
-                            <span className="text-gray-500">Bản đồ sẽ được tích hợp sau</span>
+                        <div className="mt-6 h-64 bg-gray-200 rounded-lg flex items-center justify-center">
+                            {/* <span className="text-gray-500">Bản đồ sẽ được tích hợp sau</span> */}
+                            <iframe
+                                src={googlemapURL}
+                                height="100%"
+                                width="100%"
+                                style={{ border: 0 }}
+                            >
+                                <p>Please visit the map <a href={googlemapURL}>here</a></p>
+                            </iframe>
                         </div>
                     </motion.div>
                 </div>

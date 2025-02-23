@@ -13,10 +13,20 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@layer utilities {
+  .container {
+    @apply px-[10px] sm:px-8 md:px-16 lg:px-20 xl:px-24;
+  }
+
+  .textTitle {
+    @apply text-[30px] font-bold text-center relative pb-2 sm:text-[20px];
+  }
+}
+
 /* Custom scrollbar cho Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #525251 #201f1f;
+  /* scrollbar-color: #525251 #201f1f; */
 }
 
 .bgmain-color {
@@ -95,4 +105,34 @@ body {
 
 .animation-hover-item:hover::before {
   animation: shine 0.8s forwards;
+}
+
+/* Policy and commit */
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+@media (max-width: 640px) {
+
+  .textTitle {
+    font-size: 25px;
+  }
 }

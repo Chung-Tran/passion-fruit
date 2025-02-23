@@ -1,67 +1,116 @@
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
-import logo from '../../../public/images/logo.png';
 
-export const Footer = () => {
+const Footer = () => {
     return (
-        <footer className="bg-[#242329] text-white pt-[4vw] px-[4vw] pb-[2vw]">
-            <div className="container mx-auto px-6 md:px-12">
-                <div className="flex justify-between gap-4 items-center">
+        <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                {/* Main Footer Content */}
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 justify-between">
                     {/* Company Info */}
-                    <div className="col-span-1 max-w-[30%]">
-                        <Image src={logo} width={120} height={120} alt="Logo" className="mx-auto" />
-                        <p className="mt-4 text-center text-lg text-[#fcfcfc]">CÔNG TY TNHH CHANH DÂY QUỐC CHUNG</p>
-                        <p className="mt-2 text-gray-400 text-base">MST: 6001775561 </p>
-                        <p className="mt-2 text-gray-400 text-base">Địa chỉ: Trung Hồ, Ea Hồ, Krông Năng, Đắk Lắk, Việt Nam </p>
+                    <div className="flex-1 text-center lg:text-left max-w-sm mx-auto lg:mx-0">
+                        <div className="mb-6 transform hover:scale-105 transition-transform duration-300">
+                            <Image
+                                src="/images/logo.png"
+                                width={120}
+                                height={120}
+                                alt="Logo"
+                                className="mx-auto lg:mx-0"
+                            />
+                        </div>
+                        <h2 className="text-xl font-bold text-pink-400 mb-4">
+                            CÔNG TY TNHH CHANH DÂY QUỐC CHUNG
+                        </h2>
+                        <div className="space-y-2 text-gray-300">
+                            <p className="hover:text-pink-400 transition-colors">MST: 6001775561</p>
+                            <p className="hover:text-pink-400 transition-colors">
+                                Địa chỉ: Trung Hồ, Ea Hồ, Krông Năng, Đắk Lắk, Việt Nam
+                            </p>
+                        </div>
                     </div>
 
                     {/* Newsletter Signup */}
-                    <div className="flex-1 items-center flex flex-col ">
-                        <h3 className="text-md font-semibold text-gray-300 text-center mb-2">DENTAL MARKETING INSIGHTS FOR CLEVER DENTISTS</h3>
-                        <div className="flex justify-center">
-                            <input
-                                type="email"
-                                placeholder="YOUR E-MAIL"
-                                className="px-[15px] py-[10px] text-[1vw] w-[20vw] text-[#fcfcfc] bg-transparent border border-[#fcfcfc] text-white outline-none"
-                            />
-                            <button className="ml-[20px] p-[20px] text-[1vw] bg-[#e8b3bc] hover:bg-[#db98a4] text-white">SUBSCRIBE</button>
+                    <div className="flex-1 text-center max-w-md mx-auto">
+                        <div className="bg-gray-800 p-6 rounded-lg shadow-lg transform hover:translate-y-1 transition-transform duration-300">
+                            <h3 className="text-lg font-bold text-pink-400 mb-4">
+                                DENTAL MARKETING INSIGHTS
+                            </h3>
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <input
+                                    type="email"
+                                    placeholder="YOUR E-MAIL"
+                                    className="flex-1 px-4 py-2 bg-gray-700 border border-gray-600 rounded-md focus:ring-2 focus:ring-pink-400 focus:border-transparent outline-none"
+                                />
+                                <button className="bg-pink-500 hover:bg-pink-600 px-6 py-2 rounded-md transform hover:scale-105 transition-all duration-300">
+                                    SUBSCRIBE
+                                </button>
+                            </div>
                         </div>
                     </div>
 
                     {/* Social Media & Contact */}
-                    <div className="text-center max-w-[30%] flex space-x-6 flex-wrap">
-                        <div>
-                            <h3 className="text-md font-semibold text-gray-300 mb-2">FOLLOW US</h3>
-                            <div className="flex justify-center space-x-4 mb-4">
-                                <a href="#" className="p-2 bg-gray-700 rounded-full hover:bg-pink-500 transition">
-                                    <FaInstagram className="text-white" />
-                                </a>
-                                <a href="#" className="p-2 bg-gray-700 rounded-full hover:bg-pink-500 transition">
-                                    <FaTwitter className="text-white" />
-                                </a>
-                                <a href="#" className="p-2 bg-gray-700 rounded-full hover:bg-pink-500 transition">
-                                    <FaFacebookF className="text-white" />
-                                </a>
+                    <div className="flex-1 text-center lg:text-right max-w-sm mx-auto lg:mx-0">
+                        <div className="space-y-6">
+                            <div>
+                                <h3 className="text-lg font-bold text-pink-400 mb-4">FOLLOW US</h3>
+                                <div className="flex justify-center lg:justify-end space-x-4">
+                                    {[
+                                        { Icon: FaInstagram, href: "#" },
+                                        { Icon: FaTwitter, href: "#" },
+                                        { Icon: FaFacebookF, href: "#" },
+                                    ].map((social, index) => (
+                                        <a
+                                            key={index}
+                                            href={social.href}
+                                            className="p-3 bg-gray-700 rounded-full hover:bg-pink-500 transform hover:scale-110 transition-all duration-300"
+                                        >
+                                            <social.Icon className="text-white text-xl" />
+                                        </a>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <h3 className="text-md font-semibold text-gray-300 mb-1">CALL US</h3>
-                            <p className="text-lg font-semibold my-auto">(+84) 347 238 240</p>
-                            <p className="text-lg font-semibold my-auto">(+84) 914 616 956</p>
+                            <div>
+                                <h3 className="text-lg font-bold text-pink-400 mb-4">CALL US</h3>
+                                <div className="space-y-2">
+                                    <p className="text-xl font-bold hover:text-pink-400 transition-colors">
+                                        (+84) 347 238 240
+                                    </p>
+                                    <p className="text-xl font-bold hover:text-pink-400 transition-colors">
+                                        (+84) 914 616 956
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Bottom Footer */}
-                <div className="mt-8 pt-4 border-t border-gray-700 text-center text-gray-400 text-sm flex items-center">
-                    <p>© {new Date().getFullYear()} Chanh dây Quốc Chung. All Rights Reserved</p>
-                    <div className=" hidden md:flex ml-24">
-                        <Link href="#" className="mx-2 hover:text-white">PRIVACY POLICY</Link>
-                        <Link href="#" className="mx-2 hover:text-white">TERMS AND CONDITIONS</Link>
+                <div className="mt-12 pt-8 border-t border-gray-700">
+                    <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                        <p className="text-gray-400 hover:text-pink-400 transition-colors">
+                            © {new Date().getFullYear()} Chanh dây Quốc Chung. All Rights Reserved
+                        </p>
+                        <div className="flex flex-wrap justify-center gap-4">
+                            <Link
+                                href="#"
+                                className="text-gray-400 hover:text-pink-400 transition-colors"
+                            >
+                                PRIVACY POLICY
+                            </Link>
+                            <Link
+                                href="#"
+                                className="text-gray-400 hover:text-pink-400 transition-colors"
+                            >
+                                TERMS AND CONDITIONS
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
         </footer>
     );
 };
+
+export default Footer;

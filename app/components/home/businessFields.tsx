@@ -1,39 +1,23 @@
 'use client'
-import React from 'react';
+import React, { ReactNode, useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import dichchanh from '../../../public/images/dichchanh.jpg'
-import chanhdaytrai from '../../../public/images/chanh-day-trai.jpg'
-interface Field {
-    title: string;
-    description: string;
-    image: string;
-}
+import chanhdaytrai from '../../../public/images/chanh-day-trai.jpg';
+import {
+    Modal,
+    ModalContent,
+    ModalHeader,
+    ModalBody,
+    ModalFooter,
+    Button,
+    useDisclosure,
+} from "@heroui/react";
+import { businessFieldsData } from '@/app/data/businessField';
 
 const BusinessFields = () => {
-    const fields: Field[] = [
-        {
-            title: "Cung cấp trái chanh dây trái",
-            description: "Cung cấp chanh dây tươi, tuyển chọn từ những vườn đạt chuẩn, đảm bảo chất lượng và độ chín tối ưu. Sản phẩm phù hợp để tiêu thụ trong nước và xuất khẩu. Hỗ trợ giao hàng số lượng lớn, đáp ứng nhu cầu kinh doanh.",
-            image: "../../../public/images/chanh-day-trai.jpg"
-        },
-        {
-            title: "Cung cấp dịch chanh dây",
-            description: "Dịch chanh dây nguyên chất 100%, đã làm sạch, giữ nguyên hương vị tự nhiên. Phù hợp pha chế đồ uống, làm bánh và chế biến thực phẩm. Sản phẩm đạt tiêu chuẩn an toàn vệ sinh thực phẩm, tiện lợi cho sử dụng.",
-            image: "/images/dich-chanh-day.jpg"
-        },
-        {
-            title: "Cung cấp giống cây chanh dây",
-            description: "Cung cấp giống cây chanh dây khỏe mạnh, sinh trưởng nhanh, kháng bệnh tốt. Giống được tuyển chọn kỹ lưỡng, phù hợp với nhiều vùng khí hậu. Hỗ trợ tư vấn kỹ thuật trồng trọt để đảm bảo năng suất cao.",
-            image: "/images/giong-cay-chanh-day.jpg"
-        },
-        {
-            title: "Cung cấp sầu riêng cấp đông",
-            description: "Sầu riêng được cấp đông nhanh, giữ nguyên hương vị và chất dinh dưỡng. Tiện lợi, dễ bảo quản và sử dụng quanh năm mà không ảnh hưởng đến chất lượng. Phù hợp cho tiêu thụ nội địa và xuất khẩu.",
-            image: "/images/sau-rieng-cap-dong.jpg"
-        }
-    ];
+    const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
+    const [businessFieldSelected, setBusinessFieldSelected] = useState<number | null>(null);
     const containerVariants = {
         hidden: {},
         visible: {
@@ -47,10 +31,11 @@ const BusinessFields = () => {
         hidden: { opacity: 0, y: 30 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
     };
+    const selectedField = businessFieldsData.find(field => field.id === businessFieldSelected);
 
     return (
-        <section className="py-12 relative overflow-hidden">
-            <div className="container mx-auto px-6">
+        <section className="py-2 md:py-12 relative overflow-hidden">
+            <div className="container mx-auto md:px-6">
                 <motion.div
                     variants={containerVariants}
                     initial="hidden"
@@ -58,22 +43,28 @@ const BusinessFields = () => {
                     viewport={{ once: true }}
                     className="space-y-8"
                 >
-                    {fields.map((field, index) => (
+                    {businessFieldsData.map((field, index) => (
                         <motion.div
                             key={index}
                             variants={itemVariants}
-                            className="flex flex-col md:flex-row items-center gap-10 md:gap-16"
+                            className="flex flex-col md:flex-row items-center gap-6 md:gap-8"
                         >
                             {/* Nội dung */}
                             <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
-                                <motion.div className="p-6">
-                                    <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">
+                                <motion.div className="md:p-6">
+                                    <h3 className="text-xl md:text-3xl md:text-3xl font-bold text-gray-800 mb-3">
                                         {field.title}
                                     </h3>
-                                    <p className="text-gray-600 text-lg leading-relaxed">
+                                    <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                                         {field.description}
                                     </p>
-                                    <button className="relative mt-2 px-5 py-3 font-bold text-white bgmain-color border-2 border-transparent overflow-hidden transition-all duration-500 group">
+                                    <button
+                                        onClick={() => {
+                                            onOpen();
+                                            setBusinessFieldSelected(field.id)
+                                        }}
+                                        className="relative mt-2 px-3 md:px-5 py-1.5 md:py-3 font-bold text-white bgmain-color border-2 border-transparent overflow-hidden transition-all duration-500 group"
+                                    >
                                         <span className="absolute inset-0 w-0 bg-white transition-all duration-500 group-hover:w-full"></span>
                                         <span className="relative z-10 text-white group-hover:text-[#ffd700]">Tìm hiểu thêm</span>
                                     </button>
@@ -99,6 +90,33 @@ const BusinessFields = () => {
                     ))}
                 </motion.div>
             </div>
+
+            {/* Custom Modal */}
+            <Modal
+                isOpen={(isOpen && !!businessFieldSelected)}
+                onOpenChange={onOpenChange}
+                size="5xl"
+                className='max-h-[90vh] md:max-h-[100vh] overflow-hidden my-auto'
+            >
+                <ModalContent className='max-h-[90vh] md:max-h-[100vh] overflow-hidden my-auto'>
+                    {(onClose) => (
+                        <>
+                            <ModalHeader className="flex flex-col gap-1">
+                                {selectedField?.title || "Thông tin chi tiết"}
+                            </ModalHeader>
+                            <ModalBody className="max-h-[80vh] overflow-y-auto px-2 md:px-6 space-y-4 leading-relaxed text-gray-700 ">
+                                {selectedField?.content || <p>Đang tải nội dung...</p>}
+                            </ModalBody>
+
+                            <ModalFooter>
+                                <Button color="danger" variant="light" onPress={onClose}>
+                                    Đóng
+                                </Button>
+                            </ModalFooter>
+                        </>
+                    )}
+                </ModalContent>
+            </Modal>
         </section>
     );
 };

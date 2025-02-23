@@ -12,8 +12,8 @@ const Badge = ({ children }: { children: React.ReactNode }) => (
 
 export function BlogPostCard({ title, excerpt, category, author, date, image, slug, className }: Blog) {
     return (
-        <article className={`group relative flex flex-col space-y-4 ${className || ""}`}>
-            <Link href={`/blog/${slug}`} className="overflow-hidden rounded-lg block">
+        <article className={`group rounded-lg border border-gray-200 shadow-sm  relative flex flex-col space-y-4 ${className || ""}`}>
+            <Link href={`/blogs/${slug}`} className="overflow-hidden rounded-lg block">
                 <Image
                     src={image || "/placeholder.svg"}
                     alt={title}
@@ -22,7 +22,7 @@ export function BlogPostCard({ title, excerpt, category, author, date, image, sl
                     className="aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
             </Link>
-            <div className="flex-1 space-y-3">
+            <div className="flex-1 space-y-3 p-2">
                 <div className="flex items-center gap-3 justify-between">
                     <div className="flex items-center gap-1 text-sm text-gray-500">
                         <CalendarIcon className="h-4 w-4" />
@@ -30,16 +30,16 @@ export function BlogPostCard({ title, excerpt, category, author, date, image, sl
                     </div>
                     <div className="flex items-center gap-1 text-sm text-gray-800">
                         <User className="h-4 w-4" />
-                        <span className="text-sm font-medium">{author.name}</span>
+                        <span className="text-sm font-medium">{author}</span>
                     </div>
                 </div>
                 <div className="space-y-2">
-                    <h3 className="text-xl font-bold leading-tight">
-                        <Link href={`/blog/${slug}`} className="hover:underline">
+                    <h3 className="text-lg font-bold leading-tight line-clamp-2">
+                        <Link href={`/blogs/${slug}`} className="hover:underline">
                             {title}
                         </Link>
                     </h3>
-                    <p className="text-gray-500">{excerpt}</p>
+                    <p className="text-gray-500 line-clamp-2">{excerpt}</p>
                 </div>
             </div>
         </article>

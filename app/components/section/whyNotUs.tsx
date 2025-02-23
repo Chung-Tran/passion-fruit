@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
-import { Leaf, RefreshCw, Shield, Truck } from "lucide-react";
+import { Leaf, RefreshCw, Shield, Truck, Award } from "lucide-react";
+import { FaLeaf, FaTruck, FaSyncAlt, FaShieldAlt } from 'react-icons/fa';
 const WhyNotUs = () => {
     return (
         <section className="container mx-auto px-4 py-16 overflow-hidden">
@@ -29,7 +30,7 @@ const WhyNotUs = () => {
                             <div className="absolute top-0 right-0 w-24 h-24 rounded-bl-full bg-green-50 -mr-6 -mt-6 transition-all duration-300 group-hover:bg-green-100"></div>
 
                             <div className="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-green-400 to-green-600 text-white rounded-xl mb-4 relative z-10 transform transition duration-300 group-hover:scale-110">
-                                <Leaf size={32} />
+                                <FaLeaf size={32} />
                             </div>
                             <h3 className="text-xl font-semibold mb-2 text-green-800">Trái Cây Hữu Cơ</h3>
                             <p className="text-gray-600 text-center">Tất cả sản phẩm đều được trồng tự nhiên, không hóa chất và thuốc trừ sâu độc hại.</p>
@@ -42,10 +43,10 @@ const WhyNotUs = () => {
                             <div className="absolute top-0 right-0 w-24 h-24 rounded-bl-full bg-green-50 -mr-6 -mt-6 transition-all duration-300 group-hover:bg-green-100"></div>
 
                             <div className="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-green-400 to-green-600 text-white rounded-xl mb-4 relative z-10 transform transition duration-300 group-hover:scale-110">
-                                <Truck size={32} />
+                                <Award size={32} />
                             </div>
-                            <h3 className="text-xl font-semibold mb-2 text-green-800">Giao Hàng Nhanh</h3>
-                            <p className="text-gray-600 text-center">Cam kết giao hàng trong vòng 24 giờ để đảm bảo độ tươi ngon của sản phẩm.</p>
+                            <h3 className="text-xl font-semibold mb-2 text-green-800">Đảm bảo chất lượng</h3>
+                            <p className="text-gray-600 text-center">Sản phẩm được kiểm tra nghiêm ngặt, đảm bảo chất lượng cao nhất trước khi đến tay khách hàng.</p>
                         </div>
                     </div>
 
@@ -55,10 +56,10 @@ const WhyNotUs = () => {
                             <div className="absolute top-0 right-0 w-24 h-24 rounded-bl-full bg-green-50 -mr-6 -mt-6 transition-all duration-300 group-hover:bg-green-100"></div>
 
                             <div className="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-green-400 to-green-600 text-white rounded-xl mb-4 relative z-10 transform transition duration-300 group-hover:scale-110">
-                                <RefreshCw size={32} />
+                                <FaSyncAlt size={32} />
                             </div>
-                            <h3 className="text-xl font-semibold mb-2 text-green-800">Đổi Trả Dễ Dàng</h3>
-                            <p className="text-gray-600 text-center">Hoàn tiền 100% nếu sản phẩm không đạt chất lượng như cam kết.</p>
+                            <h3 className="text-xl font-semibold mb-2 text-green-800">Đảm Bảo Quy Trình</h3>
+                            <p className="text-gray-600 text-center">Sản phẩm được kiểm tra kỹ lưỡng, đảm bảo đáp ứng tiêu chuẩn chất lượng cao nhất.</p>
                         </div>
                     </div>
 
@@ -68,10 +69,10 @@ const WhyNotUs = () => {
                             <div className="absolute top-0 right-0 w-24 h-24 rounded-bl-full bg-green-50 -mr-6 -mt-6 transition-all duration-300 group-hover:bg-green-100"></div>
 
                             <div className="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-green-400 to-green-600 text-white rounded-xl mb-4 relative z-10 transform transition duration-300 group-hover:scale-110">
-                                <Shield size={32} />
+                                <FaShieldAlt size={32} />
                             </div>
-                            <h3 className="text-xl font-semibold mb-2 text-green-800">Chất Lượng Đảm Bảo</h3>
-                            <p className="text-gray-600 text-center">Mỗi sản phẩm đều trải qua quy trình kiểm tra chất lượng nghiêm ngặt.</p>
+                            <h3 className="text-xl font-semibold mb-2 text-green-800">Minh Bạch & Uy Tín</h3>
+                            <p className="text-gray-600 text-center">Chúng tôi luôn đặt chữ tín lên hàng đầu, làm việc minh bạch, đúng hẹn và tận tâm.</p>
                         </div>
                     </div>
                 </div>

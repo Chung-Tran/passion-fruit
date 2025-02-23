@@ -31,7 +31,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden p-6">
                 <div className="grid grid-cols-1 lg:grid-cols-6 min-h-[600px] gap-8">
                     {/* Left Column - Images */}
-                    <div className="lg:col-span-3 bg-gray-50 p-6 rounded-xl">
+                    <div className="lg:col-span-3 bg-gray-50 md:p-6 rounded-xl">
                         <div ref={emblaRef} className="overflow-hidden rounded-lg">
                             <div className="flex">
                                 {product.image?.map((img, idx) => (
@@ -68,7 +68,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                     </div>
 
                     {/* Right Column - Product Info */}
-                    <div className="lg:col-span-3 p-8 flex flex-col">
+                    <div className="lg:col-span-3 md:p-8 flex flex-col">
                         <span className="inline-block bg-green-100 text-green-700 text-sm rounded-full mb-4 w-fit px-6 py-1">
                             Mã SP: {product.code}
                         </span>
@@ -103,7 +103,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
 
                         {/* Contact Button */}
                         <button className="mt-8 w-full bg-green-600 text-white py-4 rounded-xl hover:bg-green-700 transition-all flex items-center justify-center space-x-2 shadow-md">
-                            <span className="font-medium">Liên hệ đặt hàng</span>
+                            <a href={`tel:0347238240`} className="font-medium">Liên hệ đặt hàng</a>
                             <ChevronRight className="w-5 h-5" />
                         </button>
                     </div>
@@ -171,18 +171,22 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                 <h2 className="textTitle mx-auto">Bài viết nổi bật</h2>
                 <div className="container mt-8">
                     <div className="mx-auto grid gap-8 pt-12 sm:grid-cols-2 md:gap-12 lg:grid-cols-4">
-                        {blogData.map((post: Blog, index: number) => (
+                        {blogData.slice(0, 4).map((post: Blog, index: number) => (
                             <BlogPostCard key={index} {...post} />
                         ))}
                     </div>
-                    <div className="mt-12 flex justify-center">
+                    <div className="mt-3 flex justify-end">
                         <a
                             href="/blog"
-                            className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                            className="group inline-flex items-center text-green-700 font-semibold hover:text-green-900 transition-colors duration-300"
                         >
-                            View all articles
+                            Xem tất cả
+                            <span className="ml-2 transform transition-transform duration-300 group-hover:translate-x-1">
+                                ➝
+                            </span>
                         </a>
                     </div>
+
                 </div>
             </section>
         </div>
