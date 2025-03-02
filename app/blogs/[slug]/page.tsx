@@ -1,24 +1,42 @@
-'use client'
-import { useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import TopSection from '../../components/section/topSection';
 import { CalendarDays, User } from 'lucide-react';
-
 import { Blog } from '@/app/types/blog';
 import { blogData } from '@/app/data/blog';
+import type { Metadata } from 'next'
 
-export default function BlogDetail() {
-    const { slug } = useParams(); // ✅ Sử dụng useParams để lấy slug
-    const [post, setPost] = useState<Blog | null>(null);
+type Props = {
+    params: Promise<{ slug: string }>
+}
 
-    useEffect(() => {
-        if (slug) {
-            const blog = blogData.find((item: Blog) => item.slug === slug);
-            setPost(blog || null);
+export async function generateMetadata(
+    { params }: Props,
+): Promise<Metadata> {
+    const { slug } = await params
+
+    // fetch data
+    const blog = blogData.find((item => item.slug == slug));
+    if (!blog) {
+        return {
+            title: "Bài viết không tồn tại",
         }
-    }, [slug]);
+    }
 
+    return {
+        title: blog?.title,
+        // openGraph: {
+        //     images: ['/some-specific-page-image.jpg', ...previousImages],
+        // },
+    }
+}
+
+export default async function Page({
+    params,
+}: {
+    params: Promise<{ slug: string }>
+}) {
+    const { slug } = await params
+    const post: Blog | undefined = blogData.find((p) => p.slug === slug);
     if (!post) {
         return <p className="text-center py-10">Bài viết không tồn tại.</p>;
     }
@@ -62,11 +80,6 @@ export default function BlogDetail() {
 
                         <div className="prose prose-lg max-w-none">
                             {post.desc}
-                        </div>
-
-
-                        <div className="mt-8 p-6 bg-purple-50 rounded-lg">
-                            <h3 className="text-lg font-semibold text-gray-900 mb-2">Về tác giả</h3>
                         </div>
                     </div>
                 </div>

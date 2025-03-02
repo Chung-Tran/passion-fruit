@@ -3,9 +3,12 @@ import { Product } from "@/app/types/product"
 import { Phone } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-
+import { productText } from "@/app/language/product";
+import { useLanguage } from "@/app/providers"
 
 export default function ProductItem({ product }: { product: Product }) {
+    const { language } = useLanguage();
+    const languageText = productText[language as keyof typeof productText];
     return (
         <div className="group overflow-hidden rounded-lg border border-gray-200 shadow-sm transition-all duration-300 hover:shadow-lg w-[90%] md:w-full mx-auto">
             <div className="aspect-square overflow-hidden animation-hover-item">
@@ -31,11 +34,11 @@ export default function ProductItem({ product }: { product: Product }) {
                     </div>
 
                     <div className="flex items-center justify-between">
-                        <span className="text-sm text-gray-500">Đơn vị: {product.unit}</span>
+                        <span className="text-sm text-gray-500">{languageText.unitItem}: {product.unit}</span>
                         <button className="flex items-center gap-1 text-blue-600">
                             <Phone className="w-4 h-4" />
                             <a href={`tel:0347238240`} className="text-base font-medium">
-                                Liên hệ
+                                {languageText.contactOrder}
                             </a>
                         </button>
                     </div>

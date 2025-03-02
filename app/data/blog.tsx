@@ -2,7 +2,7 @@ import { Blog } from "../types/blog";
 
 export const blogData: Blog[] = [
   {
-    title: "Lợi ích của chanh dây",
+    title: "Lợi ích của chanh dây mà bạn chưa biết",
     excerpt: "Khám phá những lợi ích tuyệt vời của chanh dây đối với sức khỏe, bao gồm tăng cường hệ miễn dịch, hỗ trợ tiêu hóa và làm đẹp da.",
     category: "Sức khỏe & Dinh dưỡng",
     author: "Administrator",

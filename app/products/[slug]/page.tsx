@@ -2,7 +2,33 @@ import { notFound } from "next/navigation";
 import { productsData } from "@/app/data/product";
 import { Product } from "@/app/types/product";
 import ProductDetail from "@/app/components/product/productDetail";
-import TopSection from "@/app/components/section/topSection";
+import type { Metadata } from 'next'
+
+type Props = {
+    params: Promise<{ slug: string }>
+}
+
+export async function generateMetadata(
+    { params, }: Props,
+): Promise<Metadata> {
+    // read route params
+    const { slug } = await params
+
+    // fetch data
+    const product = productsData.find((item => item.slug == slug));
+    if (!product) {
+        return {
+            title: "Sản phẩm không tồn tại",
+        }
+    }
+
+    return {
+        title: product?.name,
+        // openGraph: {
+        //     images: ['/some-specific-page-image.jpg', ...previousImages],
+        // },
+    }
+}
 
 export default async function Page({
     params,
@@ -17,11 +43,6 @@ export default async function Page({
 
     return (
         <div className="bg-white text-green-900">
-            <TopSection
-                title='Sản Phẩm Của Chúng Tôi'
-                description='Khám phá những sản phẩm tươi ngon, chất lượng cao từ vườn trái cây của chúng tôi'
-
-            />
             <ProductDetail product={product} />
         </div>
     );

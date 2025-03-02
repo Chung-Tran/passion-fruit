@@ -1,5 +1,5 @@
 'use client'
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import chanhdaytrai from '../../../public/images/chanh-day-trai.jpg';
@@ -14,7 +14,7 @@ import {
 } from "@heroui/react";
 import { businessFieldsData } from '@/app/data/businessField';
 
-const BusinessFields = () => {
+export default function BusinessFields() {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
     const [businessFieldSelected, setBusinessFieldSelected] = useState<number | null>(null);
@@ -120,5 +120,3 @@ const BusinessFields = () => {
         </section>
     );
 };
-
-export default BusinessFields;

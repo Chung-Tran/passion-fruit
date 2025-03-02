@@ -1,6 +1,6 @@
 export const navItems = [
-    { label: 'Trang chủ', href: '/' },
-    { label: 'Giới thiệu', href: '/about' },
-    { label: 'Sản phẩm', href: '/products' },
-    { label: 'Liên hệ', href: '/contact' },
+    { label: 'home', href: '/' },
+    { label: 'about', href: '/about' },
+    { label: 'products', href: '/products' },
+    { label: 'contact', href: '/contact' },
 ]

@@ -26,7 +26,7 @@ const slides = [
     },
 ]
 
-export const HeroSlider = () => {
+export default function HeroSlider() {
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
         AutoPlay({ delay: 5000, stopOnInteraction: false }),
     ])

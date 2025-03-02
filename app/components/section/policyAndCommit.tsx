@@ -1,35 +1,17 @@
 import React from 'react'
 import { Shield, UserCheck, Award } from "lucide-react";
+import { productText } from '@/app/language/product';
+import { useLanguage } from '@/app/providers';
 
 function PolicyAndCommit() {
-  const policies = [
-    {
-      icon: <Shield size={48} />,
-      title: "Đảm Bảo Chất Lượng",
-      details: [
-        "100% trái cây tươi ngon",
-        "Kiểm tra nghiêm ngặt dư lượng thuốc bảo vệ thực vật",
-        "Nguồn gốc rõ ràng, có thể truy xuất"
-      ]
-    },
-    {
-      icon: <Award size={48} />,
-      title: "Chứng Nhận & Đối Tác",
-      details: [
-        "Chứng nhận vệ sinh an toàn thực phẩm",
-        "Đối tác của các chuỗi cửa hàng lớn",
-        "Hợp tác với nông dân theo mô hình bền vững"
-      ]
-    },
-    {
-      icon: <UserCheck size={48} />,
-      title: "Dịch Vụ Khách Hàng",
-      details: [
-        "Tư vấn tận tình 24/7",
-        "Chính sách hỗ trợ nông dân và khách hàng thân thiết",
-        "Cam kết bảo mật thông tin khách hàng"
-      ]
-    }
+  const { language } = useLanguage();
+  const t = productText[language as keyof typeof productText];
+
+  // Mảng icon tương ứng với từng chính sách
+  const policyIcons = [
+    <Shield size={48} key="shield" />,
+    <Award size={48} key="award" />,
+    <UserCheck size={48} key="userCheck" />
   ];
 
   return (
@@ -43,19 +25,19 @@ function PolicyAndCommit() {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Chính Sách & Cam Kết</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{t.policySection.title}</h2>
           <div className="w-20 h-1 bg-green-400 mx-auto"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {policies.map((policy, index) => (
+          {t.policySection.policies.map((policy, index) => (
             <div key={index} className="flip-card h-48 md:h-64">
               <div className="flip-card-inner relative w-full h-full">
                 {/* Front */}
                 <div className="flip-card-front absolute w-full h-full bg-white rounded-xl p-6 shadow-xl flex flex-col items-center justify-center">
-                  <div className="text-green-600 mb-4">{policy.icon}</div>
+                  <div className="text-green-600 mb-4">{policyIcons[index]}</div>
                   <h3 className="text-xl font-semibold mb-2 text-green-800">{policy.title}</h3>
-                  <p className="text-green-700">Xem chi tiết →</p>
+                  <p className="text-green-700">{t.policySection.viewDetails}</p>
                 </div>
 
                 {/* Back */}
@@ -78,7 +60,7 @@ function PolicyAndCommit() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default PolicyAndCommit
+export default PolicyAndCommit;

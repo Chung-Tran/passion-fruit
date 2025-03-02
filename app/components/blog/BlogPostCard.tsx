@@ -3,7 +3,7 @@ import Image from "next/image";
 import { CalendarIcon, User } from "lucide-react";
 import { Blog } from "@/app/types/blog";
 
-export function BlogPostCard({ title, excerpt, author, date, image, slug, className }: Blog) {
+export default function BlogPostCard({ title, excerpt, author, date, image, slug, className }: Blog) {
     return (
         <article className={`group rounded-lg border border-gray-200 shadow-sm  relative flex flex-col space-y-4 ${className || ""}`}>
             <Link href={`/blogs/${slug}`} className="overflow-hidden rounded-lg block">

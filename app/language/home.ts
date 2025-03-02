@@ -1,0 +1,50 @@
+export const homeText = {
+    vi: {
+        businessFields: "Lĩnh vực kinh doanh",
+        featuredProducts: "Sản phẩm nổi bật",
+        viewAll: "Xem tất cả",
+        aboutUs: "Về Chúng Tôi",
+        aboutDescription: "Chanh dây Quốc Chung là đơn vị cung cấp chanh dây và sầu riêng chất lượng cao, đáp ứng tiêu chuẩn an toàn thực phẩm...",
+        missionTitle: "Sứ Mệnh",
+        mission1: "Sản phẩm chất lượng: Chọn giống tốt, canh tác tiên tiến, đảm bảo sạch và an toàn.",
+        mission2: "Nông nghiệp bền vững: Hợp tác nhà vườn, hỗ trợ kỹ thuật, nâng cao đời sống nông dân.",
+        mission3: "Thị trường quốc tế: Xuất khẩu đạt chuẩn Mỹ, Châu Âu, Nhật Bản, Hàn Quốc.",
+        mission4: "Đồng hành khách hàng: Phân phối chuyên nghiệp, phục vụ nhanh, giá cạnh tranh.",
+        whyChooseUs: "Tại sao chọn chúng tôi?",
+        featuredArticles: "Bài viết nổi bật",
+
+        organicFruits: "Trái Cây Hữu Cơ",
+        organicFruitsDesc: "Tất cả sản phẩm đều được trồng tự nhiên, không hóa chất và thuốc trừ sâu độc hại.",
+        qualityAssurance: "Đảm bảo chất lượng",
+        qualityAssuranceDesc: "Sản phẩm được kiểm tra nghiêm ngặt, đảm bảo chất lượng cao nhất trước khi đến tay khách hàng.",
+        processGuarantee: "Đảm Bảo Quy Trình",
+        processGuaranteeDesc: "Sản phẩm được kiểm tra kỹ lưỡng, đảm bảo đáp ứng tiêu chuẩn chất lượng cao nhất.",
+        transparencyTrust: "Minh Bạch & Uy Tín",
+        transparencyTrustDesc: "Chúng tôi luôn đặt chữ tín lên hàng đầu, làm việc minh bạch, đúng hẹn và tận tâm.",
+
+    },
+    en: {
+        businessFields: "Business Fields",
+        featuredProducts: "Featured Products",
+        viewAll: "View All",
+        aboutUs: "About Us",
+        aboutDescription: "Quoc Chung Passion Fruit is a high-quality supplier of passion fruit and durian, meeting food safety standards...",
+        missionTitle: "Our Mission",
+        mission1: "High-quality products: Select the best varieties, advanced cultivation, ensuring safety and freshness.",
+        mission2: "Sustainable Agriculture: Partnering with farmers, providing technical support, improving livelihoods.",
+        mission3: "International Market: Exporting to the US, Europe, Japan, South Korea.",
+        mission4: "Customer Commitment: Professional distribution, fast service, competitive prices.",
+        whyChooseUs: "Why Choose Us?",
+        featuredArticles: "Featured Articles",
+
+        organicFruits: "Organic Fruits",
+        organicFruitsDesc: "All products are naturally grown, free from harmful chemicals and pesticides.",
+        qualityAssurance: "Quality Assurance",
+        qualityAssuranceDesc: "Products undergo strict quality checks to ensure the highest standards before reaching customers.",
+        processGuarantee: "Process Guarantee",
+        processGuaranteeDesc: "Each product is carefully inspected to meet the highest quality standards.",
+        transparencyTrust: "Transparency & Trust",
+        transparencyTrustDesc: "We prioritize credibility, work transparently, meet deadlines, and serve with dedication.",
+
+    }
+} as const;

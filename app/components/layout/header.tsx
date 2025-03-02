@@ -12,18 +12,20 @@ import {
     useDisclosure,
 } from "@heroui/react";
 import LoginModal from '../section/loginModal'
+import { useLanguage } from '@/app/providers'
+import { layoutText } from '@/app/language/layout'
 
 export const Header = () => {
     const pathname = usePathname();
     const [isOpenSearchInput, setIsOpenSearchInput] = useState(false)
     const [isScrolled, setIsScrolled] = useState(false);
-    const [language, setLanguage] = useState('vi');
+    const { language, setLanguage } = useLanguage();
     const [isLangOpen, setIsLangOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const langMenuRef = useRef<HTMLDivElement | null>(null);
     const searchInputRef = useRef<HTMLInputElement | null>(null);
     const { isOpen, onOpen, onClose } = useDisclosure();
-
+    const languageText = layoutText[language as keyof typeof layoutText];
     const languages = [
         { code: 'vi', label: 'Tiếng Việt' },
         { code: 'en', label: 'English' }
@@ -83,7 +85,7 @@ export const Header = () => {
                     </Link>
 
                     <nav className="hidden md:flex flex-col items-center justify-center flex-1 mx-4 pb-2 h-full relative">
-                        <div className='w-full flex justify-end space-x-4 mb-2 '>
+                        <div className='w-full flex justify-end space-x-4 mb-3 '>
                             <AnimatePresence>
                                 {isSearchOpen ? (
                                     <motion.div
@@ -101,12 +103,12 @@ export const Header = () => {
                                                 ref={searchInputRef}
                                                 type="text"
                                                 placeholder="Tìm kiếm..."
-                                                className="w-full px-3 py-2 text-sm focus:outline-none bg-transparent text-black"
+                                                className="w-auto flex-1 px-3 py-2 text-sm focus:outline-none bg-transparent text-black"
                                             />
                                             <button
-                                                className="px-6 py-2 bg-yellow-400 hover:bg-yellow-500 text-sm font-semibold transition-colors duration-200 rounded-full"
+                                                className="px-6 py-2 bg-yellow-400 hover:bg-yellow-500 text-sm font-semibold transition-colors duration-200 rounded-full whitespace-nowrap"
                                             >
-                                                Search
+                                                {languageText.search}
                                             </button>
                                         </div>
 
@@ -132,7 +134,7 @@ export const Header = () => {
                                                         animate={{ opacity: 1, y: 0 }}
                                                         exit={{ opacity: 0, y: -10 }}
                                                         transition={{ duration: 0.2 }}
-                                                        className="absolute right-0 mt-8 w-36 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden"
+                                                        className="absolute right-0 mt-8 w-36 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden z-10"
                                                     >
                                                         <div className="py-1">
                                                             {languages.map((lang) => (
@@ -163,21 +165,21 @@ export const Header = () => {
                                                     onOpen();
                                                 }}
                                             >
-                                                Đăng nhập
+                                                {languageText.login}
                                             </button>
                                         </div>
 
                                         <div className="hidden md:flex items-center space-x-1.5 cursor-pointer">
                                             <Newspaper className={`w-4 h-4 ${isScrolled ? 'text-gray-700' : 'text-gray-200'}`} />
                                             <Link href="/blogs" className={`text-[13px] ${isScrolled ? 'text-gray-700' : 'text-gray-200'} transition-colors`}>
-                                                Blog
+                                                {languageText.blog}
                                             </Link>
                                         </div>
 
                                         <div className="hidden md:flex items-center space-x-1.5 cursor-pointer">
                                             <UserPlus className={`w-4 h-4 ${isScrolled ? 'text-gray-700' : 'text-gray-200'}`} />
                                             <Link href="/careers" className={`text-[13px] ${isScrolled ? 'text-gray-700' : 'text-gray-200'} transition-colors`}>
-                                                Tuyển dụng
+                                                {languageText.careers}
                                             </Link>
                                         </div>
                                     </>
@@ -186,13 +188,13 @@ export const Header = () => {
 
                             <button
                                 onClick={() => setIsSearchOpen(!isSearchOpen)}
-                                className="hidden md:flex items-center cursor-pointer z-20"
+                                className="hidden md:flex items-center cursor-pointer z-20 "
                             >
                                 {
                                     !isSearchOpen ?
                                         <Search className={`w-5 h-5 ${isScrolled ? 'text-gray-700' : 'text-gray-200'}`} />
                                         :
-                                        <X className="w-5 h-5 text-gray-500" />
+                                        <X className="w-5 h-5 text-gray-500 my-auto" />
                                 }
 
                             </button>
@@ -214,7 +216,7 @@ export const Header = () => {
                                                 : 'text-gray-200 hover:text-gray-400'
                                             }`}
                                     >
-                                        {item.label}
+                                        {languageText[item.label as keyof typeof layoutText.vi]}
                                         <div className={`absolute bottom-0 left-0 right-0 h-0.5 rounded-md bg-current 
                                             ${active ? 'opacity-0' : 'opacity-0 group-hover:opacity-100'}`}
                                         />
@@ -249,7 +251,7 @@ export const Header = () => {
                                         className="block text-gray-700 hover:text-gray-900 transition-colors px-4"
                                         onClick={() => setIsOpenSearchInput(false)}
                                     >
-                                        {item.label}
+                                        {languageText[item.label as keyof typeof layoutText.vi]}
                                     </Link>
                                 ))}
                             </nav>
@@ -257,7 +259,7 @@ export const Header = () => {
                     )}
                 </AnimatePresence>
             </div>
-            <LoginModal isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
+            <LoginModal isOpen={isOpen} onOpen={onOpen} onClose={onClose} languageText={languageText} />
         </header>
     )
 }
