@@ -74,9 +74,9 @@ export default function BusinessFields() {
                             {/* Hình ảnh */}
                             <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
                                 <motion.div whileHover={{ scale: 1.05 }} className="relative group">
-                                    <div className="relative w-full h-[320px]">
+                                    <div className="relative w-full h-[320px] ">
                                         <Image
-                                            src={chanhdaytrai}
+                                            src={field.image}
                                             alt={field.title}
                                             fill
                                             className="object-cover rounded-xl shadow-lg"

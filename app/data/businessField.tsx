@@ -12,7 +12,7 @@ export const businessFieldsData: BusinessField[] = [
     id: 1,
     title: "Cung cấp trái chanh dây trái",
     description: "Cung cấp chanh dây tươi, tuyển chọn từ những vườn đạt chuẩn, đảm bảo chất lượng và độ chín tối ưu. Sản phẩm phù hợp để tiêu thụ trong nước và xuất khẩu.",
-    image: "../../../public/images/chanh-day-trai.jpg",
+    image: "/images/chanhdaytrai.png",
     content: <div className="font-sans text-gray-800 bg-gray-50 p-6">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Giới Thiệu Lĩnh Vực Kinh Doanh Chanh Dây Trái</h1>
 
@@ -87,7 +87,7 @@ export const businessFieldsData: BusinessField[] = [
     id: 2,
     title: "Cung cấp dịch chanh dây",
     description: "Dịch chanh dây sạch nguyên chất 100%, đã làm sạch, giữ nguyên hương vị tự nhiên. Phù hợp pha chế đồ uống, làm bánh và chế biến thực phẩm. Sản phẩm đủ tiêu chuẩn để xuất khẩu trong và ngoài nước",
-    image: "/images/dich-chanh-day.jpg",
+    image: "/images/dichchanh02.jpg",
     content: <div className="font-sans text-gray-800 bg-gray-50 p-6">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">
         Giới Thiệu Lĩnh Vực Kinh Doanh Dịch Chanh Dây
@@ -217,7 +217,7 @@ export const businessFieldsData: BusinessField[] = [
     id: 4,
     title: "Cung cấp sầu riêng cấp đông",
     description: "Sầu riêng thông qua quá trình được chọn lọc kĩ càng, thông qua quá trình chế biến được cấp đông nhanh, giữ nguyên hương vị và chất dinh dưỡng. Tiện lợi, dễ bảo quản và sử dụng quanh năm mà không ảnh hưởng đến chất lượng.",
-    image: "/images/sau-rieng-cap-dong.jpg",
+    image: "/images/saurieng01.png",
     content: <div className="font-sans text-gray-800 bg-gray-50 p-6">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Giới Thiệu Lĩnh Vực Kinh Doanh Sầu Riêng Cấp Đông</h1>
 

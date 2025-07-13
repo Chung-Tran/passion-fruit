@@ -14,15 +14,21 @@ const slides = [
     },
     {
         id: 2,
-        image: 'https://thanhlongsach.com/Uploads/images/SanPham/chanh-day-1.jpg',
+        image: '/images/dichchanh.jpg',
         title: 'Professional Services',
         description: 'We provide the best solutions',
     },
     {
         id: 3,
-        image: 'https://bvnguyentriphuong.com.vn/uploads/072022/images/chuy%C3%AAn%20m%C3%B4n/ck%20l%E1%BA%BB/Dinh%20d%C6%B0%E1%BB%A1ng%202/chanh-day.jpg',
-        title: 'Creative Design',
-        description: 'Innovative and modern approach',
+        image: '/images/dichchanh02.jpg',
+        title: 'Professional Services',
+        description: 'We provide the best solutions',
+    },
+    {
+        id: 4,
+        image: '/images/chanhtrai.jpg',
+        title: 'Professional Services',
+        description: 'We provide the best solutions',
     },
 ]
 
@@ -58,7 +64,7 @@ export default function HeroSlider() {
             <div className="absolute inset-0 z-10 pointer-events-none bg-black/20" /> {/* Overlay */}
 
             <div className="embla h-full" ref={emblaRef}>
-                <div className="embla__container h-full">
+                {/* <div className="embla__container h-full flex ">
                     {slides.map((slide) => (
                         <div key={slide.id} className="embla__slide relative h-full w-full flex-[0_0_100%]">
                             <div
@@ -67,6 +73,21 @@ export default function HeroSlider() {
                                     backgroundImage: `url(${slide.image})`,
                                 }}
                             />
+                        </div>
+                    ))}
+                </div> */}
+                <div className="embla__container flex h-full w-full">
+                    {slides.map((slide) => (
+                        <div
+                            key={slide.id}
+                            className="embla__slide shrink-0 basis-full h-full relative"
+                        >
+                            <div className="relative h-full w-full">
+                                <div
+                                    className="absolute inset-0 bg-cover bg-center"
+                                    style={{ backgroundImage: `url(${slide.image})` }}
+                                />
+                            </div>
                         </div>
                     ))}
                 </div>

@@ -18,7 +18,6 @@ export default function HomePage() {
 
     return (
         <>
-            {/* {showLoader && <CurtainLoader onLoadComplete={() => setShowLoader(false)} />} */}
             <HeroSlider />
 
             {/* Lĩnh vực kinh doanh */}
@@ -82,7 +81,6 @@ export default function HomePage() {
                 </div>
             </section>
 
-            {/* WHY CHOOSE US - Hexagon Design */}
             <div className="container">
                 <WhyNotUs />
             </div>
