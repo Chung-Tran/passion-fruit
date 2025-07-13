@@ -28,7 +28,7 @@ export default function ProductsPage() {
                 product.description.toLowerCase().includes(debouncedSearch.toLowerCase());
             return matchCategory && matchSearch;
         });
-    }, [category, debouncedSearch, productsData]);
+    }, [category, debouncedSearch]);
 
     // Handle search input change
     const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
